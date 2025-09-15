@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Directory - AlumniConnect</title>
+    <link rel="stylesheet" href="/stylesheets/directory.css"> <!-- ✅ Directory-specific CSS -->
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">AlumniConnect</div>
+        <ul class="nav-links">
+            <li><a href="student">Dashboard</a></li>
+            <li><a href="directory">Directory</a></li>
+            <li><a href="connections">Connections</a></li>
+            <li><a href="forums">Forums</a></li>
+            <li><a href="mentorship">Mentorship</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Directory Section -->
+    <section class="student">
+        <h2>Alumni Directory</h2>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchInput" class="search-bar" placeholder="Search by name, company, or batch...">
+
+        <!-- Alumni List -->
+        <div class="dashboard-cards" id="alumniList">
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">R</div>
+                <div class="alumni-info">
+                    <h3>Rahul Sharma</h3>
+                    <p>Software Engineer @ Google</p>
+                    <p>Batch: 2018</p>
+                </div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">P</div>
+                <div class="alumni-info">
+                    <h3>Priya Verma</h3>
+                    <p>Data Scientist @ Microsoft</p>
+                    <p>Batch: 2017</p>
+                </div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">A</div>
+                <div class="alumni-info">
+                    <h3>Amit Patel</h3>
+                    <p>Entrepreneur - Startup Founder</p>
+                    <p>Batch: 2015</p>
+                </div>
+            </div>
+
+            <div class="alumni-card">
+                <div class="alumni-avatar">N</div>
+                <div class="alumni-info">
+                    <h3>Neha Gupta</h3>
+                    <p>Product Manager @ Amazon</p>
+                    <p>Batch: 2019</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="/javascripts/directory.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Account Settings</title>
+  <link rel="stylesheet" href="/stylesheets/nav.css">
+  <link rel="stylesheet" href="/stylesheets/account.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">AlumniConnect</div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/basic">Profile</a></li>
+      <li><a href="/account" class="active">Settings</a></li>
+      <li><a href="/login">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="container">
+    <h2>Account Settings</h2>
+    <p class="info-text">Manage your account preferences, email, password, and profile details.</p>
+
+    <!-- Change Email -->
+    <section class="settings-section">
+      <h3>Change Email</h3>
+      <form id="emailForm">
+        <label for="newEmail">New Email:</label>
+        <input type="email" id="newEmail" placeholder="Enter new email" required />
+        <button type="submit" class="btn">Update Email</button>
+      </form>
+    </section>
+
+    <!-- Change Password -->
+    <section class="settings-section">
+      <h3>Change Password</h3>
+      <form id="passwordForm">
+        <label for="currentPassword">Current Password:</label>
+        <input type="password" id="currentPassword" placeholder="Enter current password" required />
+
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" placeholder="Enter new password" required minlength="6" />
+
+        <label for="confirmPassword">Confirm New Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm new password" required />
+
+        <button type="submit" class="btn">Update Password</button>
+      </form>
+    </section>
+
+    <!-- About/Bio -->
+    <section class="settings-section">
+      <h3>Profile Info</h3>
+      <form id="bioForm">
+        <label for="about">About:</label>
+        <textarea id="about" placeholder="Write a short about yourself..." rows="3"></textarea>
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" placeholder="Write your bio..." rows="3"></textarea>
+
+        <button type="submit" class="btn">Save Info</button>
+      </form>
+    </section>
+
+    <!-- Danger Zone -->
+    <section class="settings-section danger-zone">
+      <button class="btn delete-btn" id="deleteAccount">Delete Account</button>
+      <button class="btn logout-btn" id="logout">Logout</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

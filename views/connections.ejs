@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Connections - AlumniConnect</title>
+
+    <!-- link external CSS -->
+    <link rel="stylesheet" href="/stylesheets/connections.css">
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo">AlumniConnect</div>
+        <ul class="nav-links">
+            <li><a href="index">Dashboard</a></li>
+            <li><a href="directory">Directory</a></li>
+            <li><a href="connections" class="active">Connections</a></li>
+            <li><a href="forums">Forums</a></li>
+            <li><a href="mentorship">Mentorship</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="connections">
+        <h2>Your Connections</h2>
+
+        <input id="searchConnections" class="search-bar" placeholder="Search your connections..." />
+
+        <div id="connectionsList" class="connections-list">
+            <div class="connection-card">
+                <div class="left">
+                    <div class="connection-avatar">R</div>
+                    <div class="connection-info">
+                        <h3>Rahul Sharma</h3>
+                        <p>Software Engineer @ Google</p>
+                        <span class="status online">Online</span>
+                    </div>
+                </div>
+                <button class="message-btn">Message</button>
+            </div>
+
+            <div class="connection-card">
+                <div class="left">
+                    <div class="connection-avatar">P</div>
+                    <div class="connection-info">
+                        <h3>Priya Verma</h3>
+                        <p>Data Scientist @ Microsoft</p>
+                        <span class="status offline">Offline</span>
+                    </div>
+                </div>
+                <button class="message-btn">Message</button>
+            </div>
+
+            <div class="connection-card">
+                <div class="left">
+                    <div class="connection-avatar">N</div>
+                    <div class="connection-info">
+                        <h3>Neha Gupta</h3>
+                        <p>Product Manager @ Amazon</p>
+                        <span class="status online">Online</span>
+                    </div>
+                </div>
+                <button class="message-btn">Message</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- chat modal -->
+    <div id="chatModal" class="chat-modal" aria-hidden="true">
+        <div class="chat-box" role="dialog" aria-modal="true" aria-labelledby="chatUser">
+            <button id="closeChat" class="close-chat" aria-label="Close chat">&times;</button>
+            <div class="chat-header" id="chatUser">Chat</div>
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input">
+                <input id="chatText" placeholder="Type a message..." />
+                <button id="sendMessage">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- link external JS -->
+    <script src="/javascripts/connections.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Professional Information</title>
+  <link rel="stylesheet" href="/stylesheets/nav.css">
+  <link rel="stylesheet" href="/stylesheets/professional.css" />
+</head>
+<body>
+   <nav class="navbar">
+  <div class="logo">AlumniConnect</div>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/basic">Profile</a></li>
+    <li><a href="/academic">Academics</a></li>
+    <li><a href="/professional" class="active">Professional</a></li>
+    <li><a href="/social">Social Links</a></li>
+    <li><a href="/engagement">Engagement</a></li>
+    <li><a href="/networks">Network</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Main Section -->
+  <main class="container">
+    <h2>Professional Information</h2>
+    <section class="professional-card">
+      <h3>💼 Job Title:</h3>
+      <p>Software Engineer</p>
+
+      <h3>🏢 Company:</h3>
+      <p>Google India Pvt. Ltd.</p>
+
+      <h3>📊 Experience:</h3>
+      <ul class="experience-list">
+        <li>2 years as Backend Developer at Infosys (2025–2027)</li>
+        <li>3 years as Software Engineer at Google (2027–Present)</li>
+      </ul>
+
+      <h3>🛠 Skills:</h3>
+      <div class="skills-box">
+        <span>Java</span>
+        <span>Python</span>
+        <span>Data Structures</span>
+        <span>Machine Learning</span>
+        <span>Cloud Computing</span>
+        <span>Leadership</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

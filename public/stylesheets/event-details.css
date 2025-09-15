@@ -1,0 +1,112 @@
+
+
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #000;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #555;
+}
+.nav a:hover {
+  color: #000;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Titles */
+.h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.h2 {
+  font-size: 1.2rem;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Content */
+.desc {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.agenda {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.agenda li {
+  margin-bottom: 6px;
+}
+
+/* Speakers */
+.speakers {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
+}
+.speaker-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fafafa;
+}
+.speaker-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.speaker-role {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.button:hover {
+  background: #333;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  font-size: 0.85rem;
+  color: #555;
+}

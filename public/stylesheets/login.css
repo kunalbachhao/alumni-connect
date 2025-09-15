@@ -1,0 +1,140 @@
+:root {
+  --blue: #2563eb;
+  --dark: #1e3a8a;
+  --light-bg: #f5f6f8;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--light-bg);
+  color: #333;
+}
+
+/* ===== Main Container ===== */
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--dark);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* ===== Form ===== */
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===== Labels ===== */
+label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--dark);
+}
+
+/* ===== Inputs & Selects ===== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--blue);
+  /* removed box-shadow for simpler look */
+}
+
+/* ===== Checkbox ===== */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+.checkbox a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.checkbox a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Button ===== */
+button.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+button.btn:hover {
+  background: #1e40af;
+}
+
+/* ===== Terms & Conditions Box ===== */
+.terms-box {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 16px;
+  background: var(--dark);
+  color: #fff;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  border-top: 2px solid var(--blue);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* ===== Responsive (from first) ===== */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  button.btn {
+    width: 100%;
+  }
+}

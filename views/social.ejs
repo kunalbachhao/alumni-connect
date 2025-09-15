@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Social Media Links</title>
+  <link rel="stylesheet" href="stylesheets/nav.css">
+  <link rel="stylesheet" href="stylesheets/social.css" />
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">AlumniConnect</div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/basic">Profile</a></li>
+      <li><a href="/academic">Academics</a></li>
+      <li><a href="/professional">Professional</a></li>
+      <li><a href="/social" class="active">Social Links</a></li>
+      <li><a href="/engagement">Engagement</a></li>
+      <li><a href="/networks">Network</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Section -->
+  <main class="container">
+    <h2>🌐 Social Media & Web Links</h2>
+    <section class="social-card">
+      <div class="social-item">
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/johndoe" target="_blank">
+          linkedin.com/in/johndoe
+        </a>
+      </div>
+
+      <div class="social-item">
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/johndoe" target="_blank">
+          github.com/johndoe
+        </a>
+      </div>
+
+      <div class="social-item">
+        <i class="fab fa-twitter"></i>
+        <a href="https://twitter.com/johndoe" target="_blank">
+          twitter.com/johndoe
+        </a>
+      </div>
+
+      <div class="social-item">
+        <i class="fas fa-globe"></i>
+        <a href="https://johndoe.com" target="_blank">
+          johndoe.com
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+
+</html>

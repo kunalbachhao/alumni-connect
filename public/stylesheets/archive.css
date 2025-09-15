@@ -1,0 +1,135 @@
+:root {
+    --blue: #2563eb;
+    --dark: #18181b; /* Deep zinc-900 */
+    --darker: #0f0f11;
+    --mid: #27272a;  /* zinc-800 */
+    --light: #d4d4d8; /* gray-300 */
+    --muted: #a1a1aa; /* gray-400 */
+}
+
+/* General */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+}
+
+/* Navbar */
+header {
+    background: var(--mid);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--light);
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+    color: var(--blue);
+}
+
+/* Section headings */
+h1, h2 {
+    font-weight: 700;
+    color: var(--light);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+/* Filter bar */
+section.bg-zinc-800 {
+    border: 1px solid #3f3f46;
+    border-radius: 10px;
+}
+
+select,
+input[type="text"] {
+    border: 1px solid #3f3f46;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: var(--mid);
+    color: var(--light);
+    font-size: 0.95rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.4);
+}
+
+/* News cards */
+#news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.news-card {
+    background: var(--mid);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.news-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 6px;
+}
+
+.news-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+.news-text {
+    font-size: 0.95rem;
+    color: var(--light);
+}
+
+/* Pagination */
+#pagination-controls button {
+    padding: 8px 14px;
+    background: var(--mid);
+    border: 1px solid #3f3f46;
+    border-radius: 6px;
+    color: var(--light);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#pagination-controls button:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+#pagination-controls button.active {
+    background: var(--blue);
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background: var(--darker);
+    color: var(--muted);
+    font-size: 0.9rem;
+}

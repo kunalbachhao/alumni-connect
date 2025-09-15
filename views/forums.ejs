@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forums - AlumniConnect</title>
+    <link rel="stylesheet" href="/stylesheets/forums.css">
+</head>
+<script src="/javascripts/forums.js"></script>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">AlumniConnect</div>
+        <ul class="nav-links">
+            <li><a href="student">Dashboard</a></li>
+            <li><a href="directory">Directory</a></li>
+            <li><a href="connections">Connections</a></li>
+            <li><a href="forums" class="active">Forums</a></li>
+            <li><a href="mentorship">Mentorship</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Forums Section -->
+    <main class="forums">
+        <h2>Community Forums</h2>
+
+        <div class="new-post">
+            <textarea id="postInput" placeholder="Share something with the community..."></textarea>
+            <button id="postButton">Post</button>
+        </div>
+
+        <div id="postsContainer" class="posts-container">
+            <!-- Posts will appear here -->
+        </div>
+    </main>
+
+</body>
+
+</html>

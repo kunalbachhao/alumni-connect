@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Sign Up</title>
+  <link rel="stylesheet" href="/stylesheets/nav.css">
+  <link rel="stylesheet" href="/stylesheets/signup.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">Alumni Portal</div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/login">Login</a></li>
+      <li><a href="/signup" class="active">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+    <!-- Signup Form -->
+    <section id="signupSection">
+      <h2>Create Account</h2>
+      <form id="signupForm">
+        <!-- Role -->
+        <label for="role">I am a:</label>
+        <select id="role" name="role" required>
+          <option value="">-- Select --</option>
+          <option value="student">Student</option>
+          <option value="alumni">Alumni</option>
+        </select>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <!-- Student ID -->
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" name="studentId" placeholder="Enter your Student ID" required />
+
+        <!-- Password -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required minlength="6" />
+
+        <!-- Confirm Password -->
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
+
+        <!-- Graduation Year -->
+        <label for="gradYear">Graduation Year:</label>
+        <input type="number" id="gradYear" name="gradYear" min="1980" max="2035" required />
+
+        <!-- Terms Checkbox -->
+        <label class="checkbox">
+          <input type="checkbox" id="terms" required />
+          I agree to the <a href="#" id="readTerms">Terms & Conditions</a>
+        </label>
+
+        <!-- Submit -->
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </section>
+
+    <!-- Terms & Conditions Section (Hidden by default) -->
+    <section id="termsSection" style="display:none;">
+      <h2>Terms & Conditions</h2>
+      <div class="terms-box">
+        <p>
+          Welcome to Alumni Portal. By creating an account, you agree to:
+        </p>
+        <ul>
+          <li>Provide accurate and truthful information.</li>
+          <li>Respect other users and maintain professionalism.</li>
+          <li>Not misuse the platform for spam or fraudulent activity.</li>
+          <li>Comply with all applicable laws and policies.</li>
+        </ul>
+        <p>
+          Failure to comply may result in suspension or termination of your account.
+        </p>
+      </div>
+      <button id="acceptTerms" class="btn">Accept & Continue</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+
+  <script src="/javascripts/signup.js"></script>
+</body>
+</html>

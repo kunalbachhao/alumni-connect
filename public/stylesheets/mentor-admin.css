@@ -1,0 +1,181 @@
+/* ================================
+   Global Variables & Base
+================================ */
+:root {
+  --blue: #2563eb;
+  --dark: #1e3a8a;
+  --light-bg: #f5f6f8;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--light-bg);
+  color: #333;
+}
+
+/* ================================
+   Sidebar
+================================ */
+aside {
+  background: #fff;
+  border-right: 1px solid var(--border);
+}
+
+aside .text-2xl {
+  color: var(--blue);
+}
+
+.nav-item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+.nav-item.active {
+  background: var(--dark);
+  color: #fff;
+}
+
+/* ================================
+   Main Content
+================================ */
+main {
+  background: var(--light-bg);
+}
+
+header h1 {
+  color: var(--dark);
+}
+
+header p {
+  color: var(--gray);
+}
+
+/* ================================
+   Cards & Panels
+================================ */
+.bg-white {
+  background: #fff !important;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.bg-white h2 {
+  color: var(--dark);
+}
+
+/* ================================
+   Table Styling
+================================ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background: var(--light-bg);
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gray);
+}
+
+tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* ================================
+   Message Box (Modal)
+================================ */
+#messageBox {
+  border: 1px solid var(--border);
+}
+
+#okBtn {
+  background: var(--blue);
+}
+
+#okBtn:hover {
+  background: var(--dark);
+}
+
+#cancelBtn {
+  background: #e5e7eb;
+}
+
+#cancelBtn:hover {
+  background: #d1d5db;
+}
+
+/* ================================
+   Preview Sidebar
+================================ */
+.preview-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  border-left: 1px solid var(--border);
+  box-shadow: -2px 0 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  z-index: 60;
+}
+
+/* Sidebar base */
+aside {
+  transition: transform 0.3s ease;
+}
+
+/* Mobile default - sidebar hidden */
+@media (max-width: 1024px) {
+  aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background: #fff;
+    z-index: 50;
+    transform: translateX(-100%); /* hidden */
+    box-shadow: 2px 0 6px rgba(0,0,0,0.15);
+  }
+
+  aside.active {
+    transform: translateX(0); /* show */
+  }
+
+  /* Add backdrop when sidebar is open */
+  #sidebarOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 40;
+  }
+  #sidebarOverlay.show {
+    display: block;
+  }
+}

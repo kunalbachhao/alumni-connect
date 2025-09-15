@@ -1,0 +1,97 @@
+:root {
+  --blue: #2563eb;
+  --dark: #1e3a8a;
+  --light-bg: #f5f6f8;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--light-bg);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--dark);
+  font-size: 1.5rem;
+}
+
+.info-text {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Network Card */
+.network-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.preference-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+.preference-item select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* Multi-select */
+#interest-groups {
+  height: 140px;
+}
+
+/* Button */
+.btn {
+  align-self: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #1e40af;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 16px;
+  background: #f1f1f1;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #555;
+}

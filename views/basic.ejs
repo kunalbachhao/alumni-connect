@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Basic Info</title>
+  <link rel="stylesheet" href="/stylesheets/nav.css">
+  <link rel="stylesheet" href="/stylesheets/basic.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">AlumniConnect</div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/basic" class="active">Profile</a></li>
+      <li><a href="/academic">Academics</a></li>
+      <li><a href="/professional">Professional</a></li>
+      <li><a href="/social">Social Links</a></li>
+      <li><a href="/engagement">Engagement</a></li>
+      <li><a href="/networks">Network</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Main Section -->
+  <main class="container">
+    <h2>Alumni Basic Information</h2>
+    <section class="profile-card">
+      <!-- Profile Picture -->
+      <div class="profile-pic">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture" />
+      </div>
+
+      <!-- Info -->
+      <div class="info">
+        <h3>👤 Name:</h3>
+        <p>Sanya Bagwan</p>
+
+        <h3>🎂 Date of Birth:</h3>
+        <p>15th March 2003</p>
+
+        <h3>📧 Email:</h3>
+        <p>sanya.bagwan@example.com</p>
+
+        <h3>📱 Phone:</h3>
+        <p>+91 98765 43210</p>
+
+        <h3>🏠 Address:</h3>
+        <p>123, Shivaji Nagar, Pune, Maharashtra, India</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+
+</html>

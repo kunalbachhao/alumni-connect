@@ -1,0 +1,99 @@
+/* Main container */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page heading */
+.container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.container .info-text {
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Status cards container */
+.status-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual card */
+.card {
+    flex: 1 1 250px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card heading */
+.card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Card text */
+.card p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+/* Status Colors */
+.card.pending h3 {
+    color: #f59e0b; /* amber */
+}
+
+.card.approved h3 {
+    color: #10b981; /* green */
+}
+
+.card.rejected h3 {
+    color: #ef4444; /* red */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: var(--dark);
+    color: #fff;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 2px solid var(--blue);
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 768px) {
+    .status-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}

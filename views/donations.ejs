@@ -1,0 +1,36 @@
+<!-- save this as donation_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Event Donation</title>
+  <link rel="stylesheet" href="/stylesheets/donations.css">
+</head>
+<body>
+
+  <h2 style="text-align:center;">College Event Donation Form</h2>
+
+  <form action="donation_save.php" method="POST">
+    <label>Student Name:</label>
+    <input type="text" name="student_name" required>
+
+    <label>Roll Number:</label>
+    <input type="text" name="roll_no" required>
+
+    <label>Event:</label>
+    <select name="event_name" required>
+      <option value="Cultural Fest">Cultural Fest</option>
+      <option value="Sports Day">Sports Day</option>
+      <option value="Tech Fest">Tech Fest</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Donation Amount (₹):</label>
+    <input type="number" name="donation_amount" required>
+
+    <button type="submit">Submit Donation</button>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Network Preferences</title>
+  <link rel="stylesheet" href="/stylesheets/nav.css" />
+  <link rel="stylesheet" href="/stylesheets/network.css" />
+</head>
+<body>
+   <nav class="navbar">
+  <div class="logo">AlumniConnect</div>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/basic">Profile</a></li>
+    <li><a href="/academic">Academics</a></li>
+    <li><a href="/professional">Professional</a></li>
+    <li><a href="/social">Social Links</a></li>
+    <li><a href="/engagement">Engagement</a></li>
+    <li><a href="/networks" class="active">Network</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Main Section -->
+  <main class="container">
+    <h2>Alumni Network Preferences</h2>
+    <p class="info-text">Set your preferences to connect with alumni groups effectively.</p>
+
+    <section class="network-card">
+      <!-- Interest Groups Multi-select -->
+      <div class="preference-item">
+        <label for="interest-groups">Interest Groups (Ctrl/Command + Click to select multiple):</label>
+        <select id="interest-groups" multiple>
+          <option value="mentorship" selected>Mentorship</option>
+          <option value="tech-talks">Tech Talks</option>
+          <option value="networking-events">Networking Events</option>
+          <option value="sports-club">Sports Club</option>
+          <option value="charity">Charity & Donations</option>
+          <option value="workshops">Workshops</option>
+          <option value="alumni-meetups">Alumni Meetups</option>
+        </select>
+      </div>
+
+      <!-- Region -->
+      <div class="preference-item">
+        <label for="region">Region:</label>
+        <select id="region">
+          <option value="pune" selected>Pune</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="delhi">Delhi</option>
+          <option value="bangalore">Bangalore</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- Preferred Communication -->
+      <div class="preference-item">
+        <label for="communication">Preferred Communication:</label>
+        <select id="communication">
+          <option value="email" selected>Email</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="phone">Phone Call</option>
+          <option value="sms">SMS</option>
+        </select>
+      </div>
+
+      <button id="saveBtn" class="btn">Save Preferences</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script >
+    function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+  </script>
+</body>
+</html>

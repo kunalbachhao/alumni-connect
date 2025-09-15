@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Login</title>
+  <link rel="stylesheet" href="/stylesheets/nav.css">
+  <link rel="stylesheet" href="/stylesheets/login.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">Alumni Portal</div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/login" class="active">Login</a></li>
+      <li><a href="/signup">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Login Form -->
+  <main class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter your password" required minlength="6" />
+
+      <!-- 2FA (optional) -->
+      <label for="twofa">2FA Code (Optional):</label>
+      <input type="text" id="twofa" placeholder="Enter 2FA code (if enabled)" />
+
+      <!-- Remember Me -->
+      <label class="checkbox">
+        <input type="checkbox" id="remember" />
+        Remember me
+      </label>
+
+      <!-- Submit -->
+      <button type="submit" class="btn">Login</button>
+
+      <!-- Links -->
+      <p class="extra-links">
+        <a href="/password">Forgot Password?</a> |
+        <a href="/signup">Create Account</a>
+      </p>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

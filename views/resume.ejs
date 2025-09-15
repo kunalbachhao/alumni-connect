@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlumniConnect - Resume Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">AlumniConnect</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="#">Connections</a></li>
+            <li><a href="#">Forums</a></li>
+            <li><a href="#">Mentorship</a></li>
+            <li><a href="login.html"><button class="btn">Login</button></a></li>
+        </ul>
+    </nav>
+
+    <section id="resumeUpload" class="resume-upload">
+        <h2>Upload Your Resume / CV</h2>
+        <form id="uploadForm" onsubmit="return uploadResume(event)">
+            <div class="upload-area" id="uploadArea">
+                <p>Drag & drop your resume here or click to select a file</p>
+                <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div id="filePreview"></div>
+            <button type="submit" class="connect">Upload</button>
+        </form>
+        <p id="uploadMessage" class="message"></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

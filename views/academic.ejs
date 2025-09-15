@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Portal - Academic Information</title>
+  <link rel="stylesheet" href="/stylesheets/nav.css">
+  <link rel="stylesheet" href="/stylesheets/academic.css" />
+</head>
+<body>
+     <nav class="navbar">
+  <div class="logo">AlumniConnect</div>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/basic">Profile</a></li>
+    <li><a href="/academic" class="active">Academics</a></li>
+    <li><a href="/professional">Professional</a></li>
+    <li><a href="/social-links/index.html">Social Links</a></li>
+    <li><a href="/engagement">Engagement</a></li>
+    <li><a href="/networks">Network</a></li>
+  </ul>
+</nav>
+
+  <!-- Main -->
+  <main class="container">
+    <h2>Academic Information</h2>
+    <section class="academic-card">
+      <h3>🎓 Degree:</h3>
+      <p>Bachelor of Technology (B.Tech)</p>
+
+      <h3>🏫 Branch:</h3>
+      <p>Information Technology</p>
+
+      <h3>📅 Graduation Year:</h3>
+      <p>2025</p>
+
+      <h3>🏆 Achievements:</h3>
+      <div class="achievements-box">
+        <p>• Secure 1st rank in college all 4 years</p>
+        <p>• Winner of college-level coding hackathon (2024).</p>
+        <p>• Published a paper on “AI for Healthcare Emergencies” in IEEE Journal.</p>
+        <p>• Active participant in open-source projects and coding clubs.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alumni Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

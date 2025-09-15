@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alumni Portal — Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/alumini.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo" aria-hidden>
+                    <!-- simple logo -->
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4Z" stroke="white" stroke-width="1.5" />
+                        <circle cx="12" cy="11" r="2.5" fill="white" />
+                    </svg>
+                </div>
+                <span>Alumni Portal</span>
+            </div>
+
+            <nav class="nav" aria-label="Primary">
+                <a class="active" href="#">🏠 <span>Dashboard</span></a>
+                <a href="#">🧑‍🎓 <span>Directory</span></a>
+                <a href="#">🎉 <span>Events</span></a>
+                <a href="#">💼 <span>Jobs</span></a>
+                <a href="#">🤝 <span>Mentorship</span></a>
+                <a href="#">📰 <span>News</span></a>
+                <a href="#">❤️ <span>Donations</span></a>
+                <a href="#">⚙️ <span>Settings</span></a>
+            </nav>
+
+            <div style="margin-top:24px">
+                <div class="muted" style="font-size:12px; text-transform:uppercase; letter-spacing:.2em;">Quick Links</div>
+                <div class="nav" role="list">
+                    <a href="#">📄 <span>Update Profile</span></a>
+                    <a href="#">✉️ <span>Invite a Friend</span></a>
+                    <a href="#">📬 <span>Contact Alumni Office</span></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+            <div class="topbar">
+                <form class="search" role="search" onsubmit="handleSearch(event)">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search alumni, companies, skills…"
+                        aria-label="Search" />
+                    <button type="submit" class="btn">Search</button>
+                </form>
+                <div class="actions">
+                    <button class="btn" title="Notifications">🔔</button>
+                    <button class="btn accent">+ Post a Job</button>
+                    <button class="btn">Sign Out</button>
+                </div>
+            </div>
+
+            <section class="greet" aria-label="Welcome">
+                <div>
+                    <div class="muted" style="font-size:12px;">Welcome back</div>
+                    <h2 style="margin:6px 0 0;">Hi, <%=user.role %> (IT, <%= user.gradYear %>) 👋</h2>
+                    <div class="muted">Software Engineer @ Innotech • Pune</div>
+                </div>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <button class="btn">Edit Profile</button>
+                    <button class="btn accent">Become a Mentor</button>
+                </div>
+            </section>
+
+            <!-- KPI cards -->
+            <div class="grid kpis">
+                <div class="card">
+                    <h4>Total Connections</h4>
+                    <div class="kpi">
+                        <div class="val">268</div>
+                        <div class="trend up">+12 this month</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Upcoming Events</h4>
+                    <div class="kpi">
+                        <div class="val">3</div>
+                        <div class="trend">2 RSVPs</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Mentorship</h4>
+                    <div class="kpi">
+                        <div class="val">5</div>
+                        <div class="trend up">+1 new request</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Jobs Matching You</h4>
+                    <div class="kpi">
+                        <div class="val">14</div>
+                        <div class="trend">4 referrals</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two columns -->
+            <div class="grid cols">
+                <section class="card" aria-labelledby="events-title">
+                    <div class="panel-title">
+                        <h3 id="events-title">🎉 Upcoming Events</h3>
+                        <button class="btn">View Calendar</button>
+                    </div>
+                    <table class="table" role="table">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Annual Alumni Meet 2025</td>
+                                <td>Sep 30</td>
+                                <td>Campus Auditorium</td>
+                                <td><button class="btn">RSVP</button></td>
+                            </tr>
+                            <tr>
+                                <td>Web3 Careers Panel</td>
+                                <td>Oct 05</td>
+                                <td>Online</td>
+                                <td><button class="btn">Register</button></td>
+                            </tr>
+                            <tr>
+                                <td>Founders Roundtable</td>
+                                <td>Oct 15</td>
+                                <td>Pune</td>
+                                <td><button class="btn">Details</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="card" aria-labelledby="notif-title">
+                    <div class="panel-title">
+                        <h3 id="notif-title">🔔 Notifications</h3>
+                        <button class="btn">Mark all read</button>
+                    </div>
+                    <ul style="list-style:none; margin:0; padding:0; display:grid; gap:10px;">
+                        <li><span class="tag">Mentorship</span> Ayush sent you a mentee request.</li>
+                        <li><span class="tag">Event</span> You’re on the guest list for Alumni Meet.</li>
+                        <li><span class="tag">Job</span> Riya referred you for SDE I @ Fictalabs.</li>
+                        <li><span class="tag">Profile</span> Complete your profile (85%).</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Cards row -->
+            <div class="grid cards" style="margin-top:16px;">
+                <section class="card" aria-labelledby="network-title">
+                    <div class="panel-title">
+                        <h3 id="network-title">🤝 People You May Know</h3><button class="btn">View All</button>
+                    </div>
+                    <div style="display:grid; gap:10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <div>
+                                <div><strong>Ananya Kulkarni</strong> • 2023 • Data Analyst</div>
+                                <div class="muted">Bengaluru • Python, SQL</div>
+                            </div>
+                            <button class="btn">Connect</button>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <div>
+                                <div><strong>Rahul Patil</strong> • 2022 • Product Designer</div>
+                                <div class="muted">Pune • Figma, UX</div>
+                            </div>
+                            <button class="btn">Connect</button>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <div>
+                                <div><strong>Fatima Shaikh</strong> • 2020 • SDE II</div>
+                                <div class="muted">Remote • React, Node</div>
+                            </div>
+                            <button class="btn">Connect</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card" aria-labelledby="jobs-title">
+                    <div class="panel-title">
+                        <h3 id="jobs-title">💼 Recommended Jobs</h3><button class="btn">Post a Job</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Company</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Frontend Developer</td>
+                                <td>NovaSoft</td>
+                                <td><button class="btn">Apply</button></td>
+                            </tr>
+                            <tr>
+                                <td>Data Engineer</td>
+                                <td>SkyFlux</td>
+                                <td><button class="btn">Refer</button></td>
+                            </tr>
+                            <tr>
+                                <td>Product Manager</td>
+                                <td>OrbitLabs</td>
+                                <td><button class="btn">Save</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="card" aria-labelledby="mentor-title">
+                    <div class="panel-title">
+                        <h3 id="mentor-title">🧭 Mentorship</h3><button class="btn">Find Mentor</button>
+                    </div>
+                    <ul style="list-style:none; margin:0; padding:0; display:grid; gap:10px;">
+                        <li>
+                            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                                <div>
+                                    <div><strong>Soham Deshpande</strong> • ML Engineer</div>
+                                    <div class="muted">Topics: Interview Prep, CV Review</div>
+                                </div>
+                                <button class="btn">Request</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                                <div>
+                                    <div><strong>Nikita Rao</strong> • Product @ Finly</div>
+                                    <div class="muted">Topics: Roadmapping, UX</div>
+                                </div>
+                                <button class="btn">Request</button>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- News & Donations -->
+            <div class="grid cols" style="margin-top:16px;">
+                <section class="card" aria-labelledby="news-title">
+                    <div class="panel-title">
+                        <h3 id="news-title">📰 Alumni News</h3><button class="btn">All News</button>
+                    </div>
+                    <ul style="list-style:none; margin:0; padding:0; display:grid; gap:12px;">
+                        <li>
+                            <div><strong>Alumnus raises seed round for HealthTech startup</strong></div>
+                            <div class="muted">Read the story →</div>
+                        </li>
+                        <li>
+                            <div><strong>Batch of 2019 organizes scholarship fund</strong></div>
+                            <div class="muted">See impact →</div>
+                        </li>
+                        <li>
+                            <div><strong>Campus to host AI Summit this November</strong></div>
+                            <div class="muted">Learn more →</div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="card" aria-labelledby="don-title">
+                    <div class="panel-title">
+                        <h3 id="don-title">❤️ Donations</h3><button class="btn">Donate</button>
+                    </div>
+                    <div style="display:grid; gap:10px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span>Scholarship Fund</span>
+                            <span class="tag">Goal ₹10L • 72%</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span>Innovation Lab</span>
+                            <span class="tag">Goal ₹25L • 38%</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <span>Library Upgrade</span>
+                            <span class="tag">Goal ₹5L • 90%</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <div>© 2025 Your College Alumni Association</div>
+                <div>•</div>
+                <a class="muted" href="#" style="text-decoration:none;">Privacy</a>
+                <a class="muted" href="#" style="text-decoration:none; margin-left:6px;">Help / FAQ</a>
+                <a class="muted" href="#" style="text-decoration:none; margin-left:6px;">Contact</a>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function handleSearch(e) {
+            e.preventDefault(); // prevent page reload
+            const query = document.getElementById("searchInput").value.trim();
+            if (query) {
+                // For now just show an alert (later you’ll hook this to your backend)
+                alert("You searched for: " + query);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Main Layout with Sidebar -->
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-black text-white flex flex-col p-5 space-y-4">
+            <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+            <p class="text-lg mb-2">👋 Hello <%= user.studentId %></p>
+            <button class="p-2 bg-gray-700 rounded hover:bg-gray-600 w-full text-left" onclick="toggleProfile()">My
+                Profile</button>
+            <button class="p-2 bg-gray-700 rounded hover:bg-gray-600 w-full text-left">Seek Mentor</button>
+            <button class="p-2 bg-gray-700 rounded hover:bg-gray-600 w-full text-left">Alumni List</button>
+
+            <!-- Newsletter Section -->
+            <div class="mt-4 p-3 bg-gray-800 rounded">
+                <h3 class="font-bold mb-2">Newsletter</h3>
+                <input type="email" placeholder="Enter email"
+                    class="w-full p-2 mb-2 rounded text-black focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <button class="w-full bg-blue-500 p-2 rounded hover:bg-blue-600">Subscribe</button>
+            </div>
+
+            <!-- Logout at bottom -->
+            <div class="mt-auto">
+                <a href="/logout"><button class="p-2 bg-red-500 rounded hover:bg-red-600 w-full text-left">Logout</button></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Profile Card (Hidden Initially) -->
+            <div id="profileCard" class="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition hidden">
+                <h2 class="text-xl font-bold mb-4">My Profile</h2>
+                <div class="space-y-2">
+                    <p><strong>Full Name:</strong> John Doe</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Email:</strong> <%= user.email %></p>
+                    <p><strong>Contact:</strong> +91 9876543210</p>
+                    <p><strong>Address:</strong> New Delhi, India</p>
+                </div>
+
+                <!-- Academic Information -->
+                <div class="mt-4 space-y-2">
+                    <h3 class="font-bold text-lg">Academic Info</h3>
+                    <p><strong>Course:</strong> B.Tech CSE</p>
+                    <p><strong>Year:</strong> 3rd Year</p>
+                    <p><strong>CGPA:</strong> 8.5</p>
+                    <p><strong>Skills:</strong> Web Development, Python</p>
+                </div>
+
+                <div class="mt-4 flex gap-2">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Edit Profile</button>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                        onclick="deleteProfile()">Delete Profile</button>
+                </div>
+            </div>
+
+            <!-- Mentor Section with Search -->
+            <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-bold mb-4">Seek Mentor</h2>
+                <input type="text" id="mentorSearch" placeholder="Search Mentor"
+                    class="w-full p-2 border border-gray-300 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <select id="mentorFilter" class="w-full p-2 border border-gray-300 rounded-lg mb-4">
+                    <option value="all">All Expertise</option>
+                    <option value="IT">IT</option>
+                    <option value="Business">Computer</option>
+                    <option value="Design">Entc</option>
+                </select>
+                <ul id="mentorList" class="space-y-2">
+                    <li class="p-2 bg-gray-100 rounded flex justify-between hover:bg-gray-200">Rahul Sharma <button
+                            class="bg-green-500 text-white px-2 py-1 rounded request-btn">Request</button></li>
+                    <li class="p-2 bg-gray-100 rounded flex justify-between hover:bg-gray-200">Anita Verma <button
+                            class="bg-green-500 text-white px-2 py-1 rounded request-btn">Request</button></li>
+                </ul>
+            </div>
+
+            <!-- Alumni List -->
+            <div class="bg-white shadow-lg rounded-lg p-6 lg:col-span-2 hover:shadow-2xl transition">
+                <h2 class="text-xl font-bold mb-4">Alumni List</h2>
+                <input type="text" id="alumniSearch" placeholder="Search Alumni"
+                    class="w-full p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <table class="w-full border-collapse border border-gray-300">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="border p-2">Name</th>
+                            <th class="border p-2">Email</th>
+                            <th class="border p-2">Contact</th>
+                            <th class="border p-2">LinkedIn</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alumniTable">
+                        <tr>
+                            <td class="border p-2">Rahul Sharma</td>
+                            <td class="border p-2">rahul@example.com</td>
+                            <td class="border p-2">+91 9999999999</td>
+                            <td class="border p-2"><a href="#"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">View</a></td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">Anita Verma</td>
+                            <td class="border p-2">anita@example.com</td>
+                            <td class="border p-2">+91 8888888888</td>
+                            <td class="border p-2"><a href="#"
+                                    class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Request Modal -->
+    <div id="requestModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-6 rounded-lg w-80">
+            <h3 class="text-lg font-bold mb-4">Request Mentor</h3>
+            <p class="mb-4">Your mentor request has been sent successfully!</p>
+            <button id="closeModal" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">OK</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Profile Visibility
+        function toggleProfile() {
+            const profileCard = document.getElementById("profileCard");
+            profileCard.classList.toggle("hidden");
+        }
+
+        // Delete Profile
+        function deleteProfile() {
+            if (confirm("Are you sure you want to delete your profile?")) {
+                document.getElementById("profileCard").remove();
+                alert("Profile deleted successfully!");
+            }
+        }
+
+        // Mentor Search
+        const mentorSearch = document.getElementById("mentorSearch");
+        const mentorList = document.getElementById("mentorList").getElementsByTagName("li");
+        mentorSearch.addEventListener("keyup", function () {
+            let filter = mentorSearch.value.toLowerCase();
+            for (let i = 0; i < mentorList.length; i++) {
+                let text = mentorList[i].textContent.toLowerCase();
+                mentorList[i].style.display = text.includes(filter) ? "" : "none";
+            }
+        });
+
+        // Alumni Search
+        const alumniSearch = document.getElementById("alumniSearch");
+        const alumniRows = document.querySelectorAll("#alumniTable tr");
+        alumniSearch.addEventListener("keyup", () => {
+            let searchValue = alumniSearch.value.toLowerCase();
+            alumniRows.forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(searchValue) ? "" : "none";
+            });
+        });
+
+        // Modal Popup
+        const modal = document.getElementById("requestModal");
+        const closeModal = document.getElementById("closeModal");
+        const requestButtons = document.querySelectorAll(".request-btn");
+        requestButtons.forEach(btn => {
+            btn.addEventListener("click", () => modal.classList.remove("hidden"));
+        });
+        closeModal.addEventListener("click", () => modal.classList.add("hidden"));
+    </script>
+
+</body>
+
+</html>

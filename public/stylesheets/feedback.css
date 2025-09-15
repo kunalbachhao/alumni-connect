@@ -1,0 +1,92 @@
+/* === General Reset === */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* === Star Rating === */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.star {
+  color: #d1d5db; /* Tailwind gray-300 */
+  transition: transform 0.2s, color 0.3s;
+}
+
+.star:hover {
+  transform: scale(1.2);
+  color: #fbbf24; /* Tailwind amber-400 */
+}
+
+.star.active {
+  color: #f59e0b; /* Tailwind amber-500 */
+}
+
+/* === Modal Overlay === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+/* Center Modal */
+.modal-content {
+  animation: scaleUp 0.3s ease;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* === Confetti Canvas === */
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+}
+
+/* === Custom Message Box === */
+.custom-message-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 70;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

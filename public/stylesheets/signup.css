@@ -1,0 +1,125 @@
+/* Main container */
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page heading */
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Inputs & Select */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 3px rgba(37, 99, 235, 0.5);
+}
+
+/* Checkbox */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    margin-top: 8px;
+}
+
+.checkbox a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+button.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+button.btn:hover {
+    background: #1e40af;
+}
+
+/* Terms & Conditions Box */
+.terms-box {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: var(--dark);
+    color: #fff;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 2px solid var(--blue);
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    button.btn {
+        width: 100%;
+    }
+}
