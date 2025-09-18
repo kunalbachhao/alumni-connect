@@ -23,51 +23,53 @@
 
   <!-- Main Container -->
   <main class="container">
-    <!-- Signup Form -->
-    <section id="signupSection">
-      <h2>Create Account</h2>
-      <form id="signupForm">
-        <!-- Role -->
-        <label for="role">I am a:</label>
-        <select id="role" name="role" required>
-          <option value="">-- Select --</option>
-          <option value="student">Student</option>
-          <option value="alumni">Alumni</option>
-        </select>
+    <h2>Create Account</h2>
+    <form id="signupForm">
+      <!-- Role -->
+      <label for="role">I am a:</label>
+      <select id="role" name="role" required>
+        <option value="">-- Select --</option>
+        <option value="student">Student</option>
+        <option value="alumni">Alumni</option>
+      </select>
 
-        <!-- Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-        <!-- Student ID -->
-        <label for="studentId">Student ID:</label>
-        <input type="text" id="studentId" name="studentId" placeholder="Enter your Student ID" required />
+      <!-- Student ID -->
+      <label for="studentId">Student ID:</label>
+      <input type="text" id="studentId" name="studentId" placeholder="Enter your Student ID" required />
 
-        <!-- Password -->
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter password" required minlength="6" />
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required minlength="6" />
 
-        <!-- Confirm Password -->
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
+      <!-- Confirm Password -->
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
 
-        <!-- Graduation Year -->
-        <label for="gradYear">Graduation Year:</label>
-        <input type="number" id="gradYear" name="gradYear" min="1980" max="2035" required />
+      <!-- Graduation Year -->
+      <label for="gradYear">Graduation Year:</label>
+      <input type="number" id="gradYear" name="gradYear" placeholder="e.g. 2025" min="1980" max="2035" required />
 
-        <!-- Terms Checkbox -->
-        <label class="checkbox">
-          <input type="checkbox" id="terms" required />
-          I agree to the <a href="#" id="readTerms">Terms & Conditions</a>
-        </label>
+      <!-- Terms Checkbox -->
+      <label class="checkbox">
+        <input type="checkbox" id="terms" required />
+        I agree to the <a href="#" onclick="showTerms()">Terms & Conditions</a>
+      </label>
 
-        <!-- Submit -->
-        <button type="submit" class="btn">Sign Up</button>
-      </form>
-    </section>
+      <!-- Submit -->
+      <button type="submit" class="btn">Sign Up</button>
 
-    <!-- Terms & Conditions Section (Hidden by default) -->
-    <section id="termsSection" style="display:none;">
+      <!-- Links -->
+      <p class="extra-links">
+        Already have an account? <a href="/login">Login here</a>
+      </p>
+    </form>
+
+    <!-- Terms & Conditions Section (Initially Hidden) -->
+    <section id="termsSection" style="display: none;">
       <h2>Terms & Conditions</h2>
       <div class="terms-box">
         <p>
@@ -92,11 +94,23 @@
     <p>© 2025 Alumni Portal. All rights reserved.</p>
   </footer>
 
+  <!-- JS Scripts -->
   <script>
     // Hamburger menu toggle
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("show");
     }
+
+    // Show/hide terms section
+    function showTerms() {
+      document.getElementById("termsSection").style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+
+    // Accept terms and return to form
+    document.getElementById("acceptTerms")?.addEventListener("click", function () {
+      document.getElementById("termsSection").style.display = "none";
+    });
   </script>
 
   <script src="/javascripts/signup.js"></script>
