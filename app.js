@@ -11,6 +11,19 @@ const userModel = require('./models/user'); // Your Mongoose user model
 
 const app = express();
 
+const mongoose = require('mongoose');
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('✅ Connected to MongoDB'))
+.catch((err) => {
+  console.error('❌ MongoDB connection error:', err);
+  process.exit(1); // Stop the app if DB connection fails
+});
+
 // View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
