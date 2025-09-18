@@ -3,7 +3,12 @@
   --dark: #1e3a8a;
   --light-bg: #f5f6f8;
 }
-
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--light-bg);
+  color: #333;
+}
 /* Main container */
 .container {
   max-width: 600px;
