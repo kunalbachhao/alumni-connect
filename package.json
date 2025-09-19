@@ -18,8 +18,10 @@
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.18.0",
+    "mongodb": "^6.19.0",
+    "mongoose": "^8.18.1",
     "node-notifier": "^10.0.1",
+    "nodemailer": "^7.0.6",
     "qrcode": "^1.5.4",
     "speakeasy": "^2.0.0"
   }

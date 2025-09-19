@@ -10,7 +10,7 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar">
-    <div class="logo">Alumni Portal</div>
+    <div class="logo"><a href="/">Alumni Portal</a></div>
 
     <!-- Hamburger Icon -->
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -24,7 +24,7 @@
   <!-- Main Container -->
   <main class="container">
     <h2>Create Account</h2>
-    <form id="signupForm">
+    <form id="signupForm" action="/signup" method="POST">
       <!-- Role -->
       <label for="role">I am a:</label>
       <select id="role" name="role" required>
@@ -55,12 +55,12 @@
 
       <!-- Terms Checkbox -->
       <label class="checkbox">
-        <input type="checkbox" id="terms" required />
+        <input type="checkbox" id="terms" name="terms" required />
         I agree to the <a href="#" onclick="showTerms()">Terms & Conditions</a>
       </label>
 
       <!-- Submit -->
-      <button type="submit" class="btn">Sign Up</button>
+      <button type="submit" class="btn" href="/login">Sign Up</button>
 
       <!-- Links -->
       <p class="extra-links">

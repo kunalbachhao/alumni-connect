@@ -14,14 +14,11 @@ const app = express();
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch((err) => {
   console.error('❌ MongoDB connection error:', err);
-  process.exit(1); // Stop the app if DB connection fails
+  process.exit(1);
 });
 
 // View engine setup
@@ -52,6 +49,17 @@ function authenticateToken(req, res, next) {
     next();
   });
 }
+function authorizeRoles(...allowedRoles) {
+  return (req, res, next) => {
+    if (!req.user || !allowedRoles.includes(req.user.role)) {
+      return res.status(403).render('error', {
+        errorType: 'Access Denied',
+        errorMessage: 'You do not have permission to view this page.'
+      });
+    }
+    next();
+  };
+}
 
 // Routes
 
@@ -72,13 +80,13 @@ app.get('/social', (req, res) => {
 app.get('/event-details', (req, res) => {
   res.render('event-details');
 });
-app.get('/professional', (req, res) => {
+app.get('/professional',authenticateToken, (req, res) => {
   res.render('professional');
 });
-app.get('/password', (req, res) => {
+app.get('/password',authenticateToken, (req, res) => {
   res.render('password');
 });
-app.get('/forums', (req, res) => {
+app.get('/forums',authenticateToken, (req, res) => {
   res.render('forums');
 });
 app.get('/engagement', (req, res) => {
@@ -90,16 +98,16 @@ app.get('/resume', (req, res) => {
 app.get('/connections', (req, res) => {
   res.render('connections');
 });
-app.get('/basic', (req, res) => {
+app.get('/basic',authenticateToken, (req, res) => {
   res.render('basic');
 });
-app.get('/admin', (req, res) => {
+app.get('/admin', authenticateToken, authorizeRoles('admin'),(req, res) => {
   res.render('admin');
 });
-app.get('/account', (req, res) => {
+app.get('/account',authenticateToken, (req, res) => {
   res.render('account');
 });
-app.get('/academic', (req, res) => {
+app.get('/academic',authenticateToken, (req, res) => {
   res.render('academic');
 });
 app.get('/feedback', (req, res) => {
@@ -134,20 +142,32 @@ app.get('/signup', (req, res) => {
 
 // Signup Handler
 app.post('/signup', async (req, res, next) => {
-  const { role,studentId,gradYear,email, password } = req.body;
+  const { role, studentId, gradYear, email, password } = req.body;
   try {
+    console.log('[SIGNUP] Incoming data:', req.body);
+
     const existingUser = await userModel.findOne({ email });
     if (existingUser) {
-      return res.render('error', { errorType:'Invalid User',errorMessage: 'User already exists' });
+      console.log('[SIGNUP] User already exists');
+      return res.render('error', {
+        errorType: 'Invalid User',
+        errorMessage: 'User already exists'
+      });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(password, salt);
+    const hash = await bcrypt.hash(password, 10);
+    const newUser = await userModel.create({
+      role,
+      gradYear,
+      studentId,
+      email,
+      password: hash
+    });
 
-    await userModel.create({ role, gradYear, studentId, email, password: hash });
-
+    console.log('[SIGNUP] User created:', newUser);
     res.redirect('/login');
   } catch (err) {
+    console.error('[SIGNUP] Error:', err);
     next(err);
   }
 });
@@ -172,7 +192,7 @@ app.post('/login', async (req, res, next) => {
     }
 
     // Create JWT and set cookie
-    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
+    const token = jwt.sign({ email: user.email, role: user.role}, process.env.JWT_SECRET);
     res.cookie('token', token);
 
     if (user.role === "student") {

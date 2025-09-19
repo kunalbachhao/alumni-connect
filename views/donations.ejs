@@ -1,36 +1,84 @@
-<!-- save this as donation_form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>College Event Donation</title>
-  <link rel="stylesheet" href="/stylesheets/donations.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donation Page</title>
+  <link rel="stylesheet" href="/stylesheets/donations.css" />
+  <script src="/javascripts/donations.js"></script>
 </head>
 <body>
 
-  <h2 style="text-align:center;">College Event Donation Form</h2>
+  <noscript>
+    <p style="color: red; text-align: center;">JavaScript is required to use the donation form.</p>
+  </noscript>
 
-  <form action="donation_save.php" method="POST">
-    <label>Student Name:</label>
-    <input type="text" name="student_name" required>
+  <header>
+    <h1>Support a Cause</h1>
+    <p>Choose a donation category and make a difference today.</p>
+  </header>
+  <div class="back-home-container">
+  <button onclick="goToHome()" class="back-home-btn">← Back to Home</button>
+  </div>
 
-    <label>Roll Number:</label>
-    <input type="text" name="roll_no" required>
+  <div class="container">
+    <h2>Donation Categories</h2>
+    <div class="donation-categories">
+      <div class="card">
+        <h3>Education</h3>
+        <p>Help underprivileged children get access to quality education.</p>
+        <button class="donate-btn" onclick="openForm('Education')">Donate</button>
+      </div>
+      <div class="card">
+        <h3>Health</h3>
+        <p>Provide medical aid and support to those in need.</p>
+        <button class="donate-btn" onclick="openForm('Health')">Donate</button>
+      </div>
+      <div class="card">
+        <h3>Scholarships</h3>
+        <p>Help brighten a student's future.</p>
+        <button class="donate-btn" onclick="openForm('Scholarships')">Donate</button>
+      </div>
+      <div class="card">
+        <h3>Disaster Relief</h3>
+        <p>Support communities affected by natural disasters.</p>
+        <button class="donate-btn" onclick="openForm('Disaster Relief')">Donate</button>
+      </div>
+    </div>
 
-    <label>Event:</label>
-    <select name="event_name" required>
-      <option value="Cultural Fest">Cultural Fest</option>
-      <option value="Sports Day">Sports Day</option>
-      <option value="Tech Fest">Tech Fest</option>
-      <option value="Other">Other</option>
-    </select>
+    <!-- Donation Form -->
+    <div id="donationForm" class="form-box">
+      <h2>Make a Donation</h2>
+      <form id="donationFormElement">
+        <label for="cause">Cause</label>
+        <input type="text" id="cause" name="cause" readonly aria-readonly="true" />
 
-    <label>Donation Amount (₹):</label>
-    <input type="number" name="donation_amount" required>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
-    <button type="submit">Submit Donation</button>
-  </form>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <label for="amount">Donation Amount (₹)</label>
+        <input type="number" id="amount" name="amount" placeholder="Minimum ₹10" min="10" required />
+
+        <label for="method">Payment Method</label>
+        <select id="method" name="method" required>
+          <option value="">Select Payment Method</option>
+          <option value="UPI">UPI</option>
+          <option value="Credit Card">Credit Card</option>
+          <option value="Debit Card">Debit Card</option>
+          <option value="Net Banking">Net Banking</option>
+        </select>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Donate Now</button>
+          <button type="button" class="back-btn" onclick="goBack()">Back</button>
+        </div>
+        <div id="successMessage" class="success-message" style="display:none;"></div>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>

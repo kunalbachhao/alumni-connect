@@ -1,6 +1,4 @@
-// Signup form validation
 document.getElementById("signupForm").addEventListener("submit", function (e) {
-  e.preventDefault();
 
   const email = document.getElementById("email").value.trim();
   const studentId = document.getElementById("studentId").value.trim();
@@ -33,26 +31,6 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
     return;
   }
 
-  alert("Sign-Up Successful! (This is a placeholder)");
-  this.reset();
-});
-
-// === Terms & Conditions Toggle ===
-const signupSection = document.getElementById("signupSection");
-const termsSection = document.getElementById("termsSection");
-const readTerms = document.getElementById("readTerms");
-const acceptTerms = document.getElementById("acceptTerms");
-
-// Show Terms Section
-readTerms.addEventListener("click", function (e) {
-  e.preventDefault();
-  signupSection.style.display = "none";
-  termsSection.style.display = "block";
-});
-
-// Accept Terms and return to form
-acceptTerms.addEventListener("click", function () {
-  termsSection.style.display = "none";
-  signupSection.style.display = "block";
-  document.getElementById("terms").checked = true; // Auto-check the box
+  // All validations passed
+  this.submit(); // <--- SUBMIT the form to backend
 });
